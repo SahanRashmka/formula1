@@ -106,13 +106,13 @@ const api = {
     }
   },
   
-  // get Manufacturers
-  getManufacturers: async () => {
+  // get Teams
+  getTeamData: async () => {
     try {
-      const response = await axiosInstance.get('/Utility/references?referenceType=Manufacturer');
+      const response = await axiosInstance.get('/Utility/references?referenceType=Team');
       return response.data;
     } catch (error) {
-      console.error('Error fetching Manufacturers data:', error);
+      console.error('Error fetching Teams data:', error);
     }
   },
   
