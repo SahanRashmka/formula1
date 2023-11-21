@@ -58,9 +58,9 @@ const TeamPage = () => {
         setIsModalOpen(false);
     };
 
-    const handleDeleteTeam = async (teamId) => {
+    const handleDeleteTeam = async (teamID) => {
         try{
-            await api.deleteTeam(teamId);
+            await api.deleteTeam(teamID);
             
             // Fetch updated data after delete
             const response = await api.getTeams();
@@ -113,7 +113,7 @@ const TeamPage = () => {
                             const scndDriverNm = item.driverSecondNm && typeof item.driverSecondNm === 'string' ? item.driverSecondNm : '';
                             const [sdFNm, sdLNm] = scndDriverNm.split(" ");
                             return (
-                                <div key={item.teamId} className="col-12 col-md-6">
+                                <div key={item.teamID} className="col-12 col-md-6">
                                     <fieldset className="listing-item-wrapper">
                                         <div className="listing-item">
                                             <div className="listing-info"   >
@@ -146,7 +146,7 @@ const TeamPage = () => {
                                             </div>
                                         </div>
                                         <button onClick={() => handleOpenModal(item)}>Edit</button>
-                                        <button onClick={() => handleDeleteTeam(item.teamId)}>Delete</button>
+                                        <button onClick={() => handleDeleteTeam(item.teamID)}>Delete</button>
                                     </fieldset>
                                 </div>
                             )

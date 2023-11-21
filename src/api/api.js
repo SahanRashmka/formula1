@@ -47,6 +47,7 @@ const api = {
   // save Team
   saveTeam: async (teamData) => {
     try {
+      console.log(teamData);
       const response = await axiosInstance.post('/Team', teamData);
       return response.data;
     } catch (error) {
