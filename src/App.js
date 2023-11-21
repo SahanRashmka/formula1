@@ -8,21 +8,22 @@ import Footer from './layouts/footer';
 
 const App = () => {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Navigate to="/drivers" />} />
-        <Route path="" element={<Navigate to="/drivers" />} />
-        <Route path="/drivers" element={<DriverPage />} />
-        <Route path="/teams" element={<TeamPage />} />
-        <Route path="/results" element={<ResultPage />} />
-      </Routes>
-    </Router>
-    // <div>
-    //   <Navbar />
-    //   <div className="container mt-4">
-    //   </div>
-    //   <Footer />
-    // </div>
+    
+    <div>
+      <Navbar />
+      <div className="container mt-4">
+        <Router>
+          <Routes>
+            <Route path="/" element={<Navigate to="/drivers" />} />
+            <Route path="" element={<Navigate to="/drivers" />} />
+            <Route path="/drivers" element={<DriverPage />} />
+            <Route path="/teams" element={<TeamPage />} />
+            <Route path="/results" element={<ResultPage />} />
+          </Routes>
+        </Router>
+       </div>
+       <Footer />
+     </div>
 
   );
 };
