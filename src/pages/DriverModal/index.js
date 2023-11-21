@@ -73,16 +73,16 @@ const DriverModal = ({ isOpen, onClose, onSave, driver, nationalities, teams }) 
     >
       <h2>{driver ? 'Edit Driver' : 'Add Driver'}</h2>
       <form>
-        <div class="form-group">
+        <div className="form-group">
           <label>Driver Name:</label>
           <input type="text" className="form-control" name="driverNm" value={driverData.driverNm} onChange={handleInputChange} />
         </div>
-        <div class="form-group">
+        <div className="form-group">
           <label>Driver Age:</label>
           <input type="number" className="form-control" name="driverAge" value={driverData.driverAge} onChange={handleInputChange} />
         </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Nationality:</label>
+        <div className="form-group">
+          <label>Nationality:</label>
           <select className="form-control" name="nationalityID" value={driverData.nationalityID} onChange={handleInputChange}>
             <option value={0}>Select Nationality</option>
             {nationalityOptions.map((nationality) => (
@@ -92,8 +92,8 @@ const DriverModal = ({ isOpen, onClose, onSave, driver, nationalities, teams }) 
             ))}
           </select>
         </div>
-        <div class="form-group">
-          <label for="exampleInputEmail1">Team:</label>
+        <div className="form-group">
+          <label>Team:</label>
           <select className="form-control" name="teamID" value={driverData.teamID} onChange={handleInputChange}>
             <option value={0}>Select Team</option>
             {teamOptions.map((team) => (

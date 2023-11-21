@@ -44,6 +44,16 @@ const api = {
     }
   },
 
+  // get Teams
+  getTeams: async () => {
+    try {
+      const response = await axiosInstance.get('/Team');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching Teams data:', error);
+    }
+  },
+
   // save Team
   saveTeam: async (teamData) => {
     try {
@@ -77,13 +87,25 @@ const api = {
     }
   },
 
-  // get Teams
-  getTeams: async () => {
+  // save Result
+  saveResult: async (resultData) => {
     try {
-      const response = await axiosInstance.get('/Team');
+      const response = await axiosInstance.post('/Race', resultData);
       return response.data;
     } catch (error) {
-      console.error('Error fetching Teams data:', error);
+      console.error('Error fetching Result data:', error);
+      throw error;
+    }
+  },
+
+  // delete Result
+  deleteResult: async (resultID) => {
+    try {
+      const response = await axiosInstance.delete(`/Race/${resultID}`);
+      return response.data;
+    } catch (error) {
+      console.error('Error deleting Result:', error);
+      throw error;
     }
   },
 
@@ -124,6 +146,26 @@ const api = {
       return response.data;
     } catch (error) {
       console.error('Error fetching Drivers data:', error);
+    }
+  },
+
+  // get Cars
+  getCars: async () => {
+    try {
+      const response = await axiosInstance.get('/Utility/references?referenceType=Car');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching Cars data:', error);
+    }
+  },
+
+  // get Countries
+  getCountries: async () => {
+    try {
+      const response = await axiosInstance.get('/Utility/references?referenceType=Country');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching Countries data:', error);
     }
   },
 
