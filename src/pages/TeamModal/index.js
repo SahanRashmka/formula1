@@ -25,7 +25,7 @@ const TeamModal = ({ isOpen, onClose, onSave, team, manufacturers, drivers }) =>
             driverSecondID: 0,
             driverSecondNm: '',
             image: '',
-        ...team,
+            ...team,
         });
     }, [isOpen, team]);
 
