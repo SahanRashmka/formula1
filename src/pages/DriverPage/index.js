@@ -96,10 +96,10 @@ const DriverPage = () => {
                         </span>
                     </div>
                     <div className="row mt-2">
-                        <p className="no-margin text--micro">Check out this season's official F1 line-up. Full breakdown of drivers, points and current positions. Follow your favourite F1 drivers on and off the track. </p>
+                        <p className="text-justify">Check out this season's official F1 line-up. Full breakdown of drivers, points and current positions. Follow your favourite F1 drivers on and off the track. </p>
                     </div>
             </div>
-            <div className="container listing-items--wrapper driver during-season">
+            <div className="container">
                 <div className="row">
                     {data.map((item) => {
                         const driverName = item.driverNm && typeof item.driverNm === 'string' ? item.driverNm : '';
@@ -112,7 +112,7 @@ const DriverPage = () => {
                                 <div className="card-body">
                                     <h5 className="card-title">{fNm} {lNm}</h5>
                                     <p className="card-text">{item.teamNm}</p>
-                                    <button onClick={() => handleOpenModal(item)} className="btn btn-sm btn-warning mx-1">Add</button>
+                                    <button onClick={() => handleOpenModal(item)} className="btn btn-sm btn-warning mx-1">Edit</button>
                                     <button onClick={() => handleDeleteDriver(item.driverID)} className="btn btn-sm btn-danger">Delete</button>
                                 </div>
                             </div>
