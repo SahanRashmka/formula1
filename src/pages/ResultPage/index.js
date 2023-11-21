@@ -102,19 +102,15 @@ const ResultPage = () => {
                             <button className='btn btn-primary' onClick={() => handleOpenModal()}>Add</button>
                         </span>
                     </div>
-                    
-                <div className="table-wrap">
-                    <table className="resultsarchive-table">
+                    <table className="table table-striped table-dark">
                         <thead>
                             <tr>
-                                <th className="limiter"></th>
-                                <th>Grand Prix</th>
-                                <th>Winner</th>
-                                <th>Car</th>
-                                <th className="hide-for-mobile">Laps</th>
-                                <th className="hide-for-tablet">Time</th>
-                                <th>Actions</th>
-                                <th className="limiter"></th>
+                            <th scope="col">Grand Prix</th>
+                            <th scope="col">Winner</th>
+                            <th scope="col">Car</th>
+                            <th scope="col">Laps</th>
+                            <th scope="col">Time</th>
+                            <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -123,28 +119,25 @@ const ResultPage = () => {
                                 const [fNm, lNm] = winnerName.split(" ");
                                 return (
                                     <tr key={item.raceID}>
-                                        <td className="limiter"></td>
-                                        <td className="dark bold">
+                                        <td>
                                             {item.grandPixNm}
                                         </td>
-                                        <td className="dark bold">
-                                            <span className="hide-for-tablet">{fNm}</span>
-                                            <span className="hide-for-mobile">{lNm}</span>
+                                        <td>
+                                            {fNm + " "}
+                                            {lNm}
                                         </td>
-                                        <td className="semi-bold uppercase ">{item.carNm}</td>
-                                        <td className="bold hide-for-mobile">{item.laps}</td>
-                                        <td className="dark bold hide-for-tablet">{item.winnerTime}</td>
+                                        <td>{item.carNm}</td>
+                                        <td>{item.laps}</td>
+                                        <td>{item.winnerTime}</td>
                                         <td>
                                             <button onClick={() => handleOpenModal(item)} className="btn btn-sm btn-warning mx-1">Edit</button>
                                             <button onClick={() => handleDeleteResult(item.raceID)} className="btn btn-sm btn-danger">Delete</button>
                                         </td>
-                                        <td className="limiter"></td>
                                     </tr>
                                 )
                             })}
                         </tbody>
                     </table>
-                </div>
         </div>
         <ResultModal
             isOpen={isModalOpen}
