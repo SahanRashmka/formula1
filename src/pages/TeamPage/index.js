@@ -85,15 +85,15 @@ const TeamPage = () => {
     return (
         <>
             <div>
-                <div className="container listing-header">
-                    <fieldset className="f1-border--top-right f1-border-color--carbonBlack">
-                        <div className="row">
-                            <div className="col-12">
-                                <h1 className="f1-black--xxl no-margin">F1 Teams 2023</h1>
-                                <button onClick={() => handleOpenModal()}>Add</button>
-                            </div>
-                        </div>
-                    </fieldset>
+                <div className="container">
+                <div className="row mt-2">
+                        <span className="col-8">
+                            <h1 className="heading inline">F1 Teams 2023</h1>
+                        </span>
+                        <span className="col-4">
+                            <button className='btn btn-primary' onClick={() => handleOpenModal()}>Add</button>
+                        </span>
+                    </div>
                 </div>
                 <div className="container listing-seo-wrapper">
                     <div className="seo-content">
