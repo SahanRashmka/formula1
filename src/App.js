@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import DriverPage from './pages/DriverPage';
 import TeamPage from './pages/TeamPage';
 import ResultPage from './pages/ResultPage';
+import Navbar from './layouts/navBar';
+import Footer from './layouts/footer';
 
 const App = () => {
   return (
@@ -15,6 +17,13 @@ const App = () => {
         <Route path="/results" element={<ResultPage />} />
       </Routes>
     </Router>
+    // <div>
+    //   <Navbar />
+    //   <div className="container mt-4">
+    //   </div>
+    //   <Footer />
+    // </div>
+
   );
 };
 
