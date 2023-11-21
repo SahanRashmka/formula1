@@ -92,9 +92,9 @@ const ResultModal = ({ isOpen, onClose, onSave, result, drivers, countries, cars
           <input type="text" className="form-control" name="winnerTime" value={resultData.winnerTime} onChange={handleInputChange} />
         </div>
         <div className="form-group">
-          <label>Race:</label>
+          <label>Grand Prix:</label>
           <select className="form-control" name="grandPixID" value={resultData.grandPixID} onChange={handleInputChange}>
-            <option value={0}>Select Race</option>
+            <option value={0}>Select Grand Prix</option>
             {countryOptions.map((country) => (
               <option key={country.referenceValue} value={country.referenceValue}>
                 {country.referenceLabel}
