@@ -59,6 +59,18 @@ const DriverPage = () => {
         setIsModalOpen(false);
     };
 
+    const handleDeleteDriver = async (driverId) => {
+        try{
+            await api.deleteDriver(driverId);
+            
+            // Fetch updated data after delete
+            const response = await api.getDrivers();
+            setData(response);
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
     const handleSaveDriver = async (driverData) => {
         try {
             await api.saveDriver(driverData);
@@ -112,6 +124,7 @@ const DriverPage = () => {
                                     </div>
                                     <p className="listing-item--team f1--xxs f1-color--gray5">{item.teamNm}</p>
                                     <button onClick={() => handleOpenModal(item)}>Edit</button>
+                                    <button onClick={() => handleDeleteDriver(item.driverID)}>Delete</button>
                                 </fieldset>
                             </div>
                         )

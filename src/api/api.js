@@ -33,6 +33,18 @@ const api = {
     }
   },
 
+  // delete Driver
+  deleteDriver: async (driverID) => {
+    try {
+      const response = await axiosInstance.delete(`/Driver/${driverID}`);
+      return response.data;
+    } catch (error) {
+      console.error('Error deleting Driver:', error);
+      throw error;
+    }
+  },
+
+
   // get Results
   getResults: async () => {
     try {
