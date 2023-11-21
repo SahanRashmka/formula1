@@ -23,9 +23,9 @@ const api = {
   },
 
   // save Driver
-  saveDriver: async () => {
+  saveDriver: async (driverData) => {
     try {
-      const response = await axiosInstance.post('/Driver');
+      const response = await axiosInstance.post('/Driver', driverData);
       return response.data;
     } catch (error) {
       console.error('Error fetching Driver data:', error);

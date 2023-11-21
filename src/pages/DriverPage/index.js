@@ -61,13 +61,7 @@ const DriverPage = () => {
 
     const handleSaveDriver = async (driverData) => {
         try {
-            if (driverData.driverID !== 0) {
-                // Edit existing driver
-                await api.editDriver(driverData);
-            } else {
-                // Add new driver
-                await api.addDriver(driverData);
-            }
+            await api.saveDriver(driverData);
 
             // Fetch updated data after save
             const response = await api.getDrivers();
