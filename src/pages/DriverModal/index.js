@@ -49,7 +49,7 @@ const DriverModal = ({ isOpen, onClose, onSave, driver, nationalities, teams }) 
       isOpen={isOpen}
       onRequestClose={onClose}
       contentLabel="Driver Modal"
-      ariaHideApp={false} // to suppress a11y warnings
+      ariaHideApp={false}
     >
       <h2>{driver ? 'Edit Driver' : 'Add Driver'}</h2>
       <form>

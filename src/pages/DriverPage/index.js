@@ -23,7 +23,7 @@ const DriverPage = () => {
 
         const fetchNationalities = async () => {
             try {
-                const response = await api.getNationalities();
+                const response = await api.getManufacturers();
                 console.log(response);
                 setNationalities(response);
             } catch (error) {

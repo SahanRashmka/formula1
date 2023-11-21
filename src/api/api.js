@@ -44,6 +44,27 @@ const api = {
     }
   },
 
+  // save Team
+  saveTeam: async (teamData) => {
+    try {
+      const response = await axiosInstance.post('/Team', teamData);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching Team data:', error);
+      throw error;
+    }
+  },
+
+  // delete Team
+  deleteTeam: async (teamID) => {
+    try {
+      const response = await axiosInstance.delete(`/Team/${teamID}`);
+      return response.data;
+    } catch (error) {
+      console.error('Error deleting Team:', error);
+      throw error;
+    }
+  },
 
   // get Results
   getResults: async () => {
@@ -75,13 +96,33 @@ const api = {
     }
   },
 
-  // get Teams for drop down
-  getTeamData: async () => {
+  // get Manufacturers
+  getManufacturers: async () => {
     try {
-      const response = await axiosInstance.get('/Utility/references?referenceType=Team');
+      const response = await axiosInstance.get('/Utility/references?referenceType=Manufacturer');
       return response.data;
     } catch (error) {
-      console.error('Error fetching Teams data:', error);
+      console.error('Error fetching Manufacturers data:', error);
+    }
+  },
+  
+  // get Manufacturers
+  getManufacturers: async () => {
+    try {
+      const response = await axiosInstance.get('/Utility/references?referenceType=Manufacturer');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching Manufacturers data:', error);
+    }
+  },
+  
+  // get Drivers for drop down
+  getDriverData: async () => {
+    try {
+      const response = await axiosInstance.get('/Utility/references?referenceType=Driver');
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching Drivers data:', error);
     }
   },
 
