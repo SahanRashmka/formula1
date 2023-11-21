@@ -63,7 +63,7 @@ const api = {
     }
   },
 
-  // get Teams
+  // get Teams for drop down
   getTeamData: async () => {
     try {
       const response = await axiosInstance.get('/Utility/references?referenceType=Team');

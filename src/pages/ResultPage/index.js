@@ -9,7 +9,7 @@ const ResultPage = () => {
         try {
             const response = await api.getResults();
             console.log(response);
-            setData(response);
+            setData(response || []);
         } catch (error) {
             console.error(error);
         }

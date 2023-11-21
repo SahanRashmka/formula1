@@ -41,8 +41,8 @@ const DriverModal = ({ isOpen, onClose, onSave, driver, nationalities, teams }) 
     onClose();
   };
 
-  const nationalityOptions = nationalities ? nationalities : [];
-  const teamOptions = teams ? teams : [];
+  const nationalityOptions = nationalities || [];
+  const teamOptions = teams || [];
 
   return (
     <Modal
