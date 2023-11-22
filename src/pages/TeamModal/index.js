@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
+import ImageUpload from '../../Components/ImageUpload.js'
 
 const customStyles = {
     content: {
@@ -143,13 +144,7 @@ const TeamModal = ({ isOpen, onClose, onSave, team, manufacturers, drivers }) =>
                 </div>
                 <div className="form-group">
                     <label>Image:</label>
-                    <input
-                        type="text"
-                        className="form-control"
-                        name="image"
-                        value={teamData.image}
-                        onChange={handleInputChange}
-                    />
+                    <ImageUpload/>
                 </div>
                 <hr />
                 <button className="btn btn-primary mx-2" onClick={handleSave}>
