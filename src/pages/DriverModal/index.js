@@ -101,7 +101,7 @@ const DriverModal = ({ isOpen, onClose, onSave, driver, nationalities, teams }) 
                 {team.referenceLabel}
               </option>
             ))}
-          </select>
+          </select>      
         </div>
         <hr/>
         <button className="btn btn-primary mx-2" type="button" onClick={handleSave}>

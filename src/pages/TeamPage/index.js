@@ -85,68 +85,66 @@ const TeamPage = () => {
 
     return (
         <>
-            <div>
-                <div className="container">
-                    <div className="row mt-2">
-                        <span className="col-8">
-                            <h1 className="heading inline">F1 Teams 2023</h1>
-                        </span>
-                        <span className="col-4">
-                            <button
-                                className="btn btn-primary"
-                                onClick={() => handleOpenModal()}
-                            >
-                                Add
-                            </button>
-                        </span>
-                    </div>
-                </div>
+            <div className="container">
                 <div className="row mt-2">
-                    <p className="text-justify">
-                        Discover everything you need to know about this year's Formula 1
-                        teams - drivers, podium finishes, points earned and championship
-                        titles.
-                    </p>
+                    <span className="col-8">
+                        <h1 className="heading inline">F1 Teams 2023</h1>
+                    </span>
+                    <span className="col-4">
+                        <button
+                            className="btn btn-primary"
+                            onClick={() => handleOpenModal()}
+                        >
+                            Add
+                        </button>
+                    </span>
                 </div>
-                <div className="container">
-                    <div className="row">
-                        {data.map((item) => {
-                            const frstDriverNm =
-                                item.dirverFirstNm && typeof item.dirverFirstNm === "string"
-                                    ? item.dirverFirstNm
-                                    : "";
-                            const [fdFNm, fdLNm] = frstDriverNm.split(" ");
-                            const scndDriverNm =
-                                item.driverSecondNm && typeof item.driverSecondNm === "string"
-                                    ? item.driverSecondNm
-                                    : "";
-                            const [sdFNm, sdLNm] = scndDriverNm.split(" ");
-                            return (
-                                <div
-                                    key={item.teamID}
-                                    className="card mx-2"
-                                    Style="width: 18rem;"
-                                >
-                                    <img className="card-img-top" alt="" />
-                                    <div className="card-body">
-                                        <h5 className="card-title">{item.teamNm}</h5>
-                                        <p className="card-text">
-                                            {fdFNm} {fdLNm}
-                                        </p>
-                                        <p className="card-text">
-                                            {sdFNm} {sdLNm}
-                                        </p>
-                                        <button onClick={() => handleOpenModal(item)}>
-                                            Edit
-                                        </button>
-                                        <button onClick={() => handleDeleteTeam(item.teamID)}>
-                                            Delete
-                                        </button>
-                                    </div>
+            </div>
+            <div className="row mt-2">
+                <p className="text-justify">
+                    Discover everything you need to know about this year's Formula 1
+                    teams - drivers, podium finishes, points earned and championship
+                    titles.
+                </p>
+            </div>
+            <div className="container">
+                <div className="row">
+                    {data.map((item) => {
+                        const frstDriverNm =
+                            item.dirverFirstNm && typeof item.dirverFirstNm === "string"
+                                ? item.dirverFirstNm
+                                : "";
+                        const [fdFNm, fdLNm] = frstDriverNm.split(" ");
+                        const scndDriverNm =
+                            item.driverSecondNm && typeof item.driverSecondNm === "string"
+                                ? item.driverSecondNm
+                                : "";
+                        const [sdFNm, sdLNm] = scndDriverNm.split(" ");
+                        return (
+                            <div
+                                key={item.teamID}
+                                className="card mx-2"
+                                Style="width: 18rem;"
+                            >
+                                <img className="card-img-top" alt="" />
+                                <div className="card-body">
+                                    <h5 className="card-title">{item.teamNm}</h5>
+                                    <p className="card-text">
+                                        {fdFNm} {fdLNm}
+                                    </p>
+                                    <p className="card-text">
+                                        {sdFNm} {sdLNm}
+                                    </p>
+                                    <button onClick={() => handleOpenModal(item)}  className="btn btn-sm btn-warning mx-1"> 
+                                        Edit
+                                    </button>
+                                    <button onClick={() => handleDeleteTeam(item.teamID)}  className="btn btn-sm btn-danger">
+                                        Delete
+                                    </button>
                                 </div>
-                            );
-                        })}
-                    </div>
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
             <TeamModal

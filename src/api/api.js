@@ -168,7 +168,6 @@ const api = {
       console.error('Error fetching Countries data:', error);
     }
   },
-
 };
 
 export default api;
