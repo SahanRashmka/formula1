@@ -14,7 +14,6 @@ const ResultPage = () => {
         const fetchData = async () => {
         try {
             const response = await api.getResults();
-            console.log(response);
             setData(response || []);
         } catch (error) {
             console.error(error);
@@ -24,8 +23,7 @@ const ResultPage = () => {
         const fetchDrivers = async () => {
             try {
                 const response = await api.getDriverData();
-                console.log(response);
-                setDrivers(response);
+                setDrivers(response || []);
             } catch (error) {
                 console.error(error);
             }
@@ -34,8 +32,7 @@ const ResultPage = () => {
         const fetchCountries = async () => {
             try {
                 const response = await api.getCountries();
-                console.log(response);
-                setCountries(response);
+                setCountries(response || []);
             } catch (error) {
                 console.error(error);
             }
@@ -44,8 +41,7 @@ const ResultPage = () => {
         const fetchCars = async () => {
             try {
                 const response = await api.getCars();
-                console.log(response);
-                setCars(response);
+                setCars(response || []);
             } catch (error) {
                 console.error(error);
             }
@@ -73,7 +69,7 @@ const ResultPage = () => {
             
             // Fetch updated data after delete
             const response = await api.getResults();
-            setData(response);
+            setData(response || []);
         } catch (error) {
             console.error(error);
         }
@@ -85,7 +81,7 @@ const ResultPage = () => {
 
             // Fetch updated data after save
             const response = await api.getResults();
-            setData(response);
+            setData(response || []);
         } catch (error) {
             console.error(error);
         }

@@ -14,8 +14,7 @@ const TeamPage = () => {
         const fetchData = async () => {
             try {
                 const response = await api.getTeams();
-                console.log(response);
-                setData(response);
+                setData(response || []);
             } catch (error) {
                 console.error(error);
             }
@@ -24,8 +23,7 @@ const TeamPage = () => {
         const fetchManufacturers = async () => {
             try {
                 const response = await api.getManufacturers();
-                console.log(response);
-                setManufacturers(response);
+                setManufacturers(response || []);
             } catch (error) {
                 console.error(error);
             }
@@ -34,8 +32,7 @@ const TeamPage = () => {
         const fetchDrivers = async () => {
             try {
                 const response = await api.getDriverData();
-                console.log(response);
-                setDrivers(response);
+                setDrivers(response || []);
             } catch (error) {
                 console.error(error);
             }
@@ -65,7 +62,7 @@ const TeamPage = () => {
 
             // Fetch updated data after delete
             const response = await api.getTeams();
-            setData(response);
+            setData(response || []);
         } catch (error) {
             console.error(error);
         }
@@ -77,7 +74,7 @@ const TeamPage = () => {
 
             // Fetch updated data after save
             const response = await api.getTeams();
-            setData(response);
+            setData(response || []);
         } catch (error) {
             console.error(error);
         }

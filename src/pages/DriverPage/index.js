@@ -15,8 +15,7 @@ const [teams, setTeams] = useState([]);
         const fetchData = async () => {
             try {
                 const response = await api.getDrivers();
-                console.log(response);
-                setData(response);
+                setData(response || []);
             } catch (error) {
                 console.error(error);
             }
@@ -25,8 +24,7 @@ const [teams, setTeams] = useState([]);
         const fetchNationalities = async () => {
             try {
                 const response = await api.getManufacturers();
-                console.log(response);
-                setNationalities(response);
+                setNationalities(response || []);
             } catch (error) {
                 console.error(error);
             }
@@ -35,8 +33,7 @@ const [teams, setTeams] = useState([]);
         const fetchTeams = async () => {
             try {
                 const response = await api.getTeamData();
-                console.log(response);
-                setTeams(response);
+                setTeams(response || []);
             } catch (error) {
                 console.error(error);
             }
@@ -66,7 +63,7 @@ const [teams, setTeams] = useState([]);
             
             // Fetch updated data after delete
             const response = await api.getDrivers();
-            setData(response);
+            setData(response || []);
         } catch (error) {
             console.error(error);
         }
@@ -78,7 +75,7 @@ const [teams, setTeams] = useState([]);
 
             // Fetch updated data after save
             const response = await api.getDrivers();
-            setData(response);
+            setData(response || []);
         } catch (error) {
             console.error(error);
         }

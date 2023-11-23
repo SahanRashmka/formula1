@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 
-const defaultImgSrc = '/images/placeholderImage.jpg';
 const initialFieldValues = {
     teamID:0,
     teamNm:'',
     imageNm:'',
-    imageSrc:defaultImgSrc,
+    imageSrc:null,
     imageFile:null
 }
 const customStyles = {
@@ -42,7 +41,7 @@ const TeamModal = ({ isOpen, onClose, onSave, team, manufacturers, drivers }) =>
         driverSecondID: 0,
         driverSecondNm: '',
         imageName:'',
-        imageSrc: defaultImgSrc,
+        imageSrc: null,
         imageFile: null,
         ...team,
     });
@@ -61,7 +60,7 @@ const TeamModal = ({ isOpen, onClose, onSave, team, manufacturers, drivers }) =>
             imageFile: values.imageFile,
             ...team,
         });
-    }, [isOpen, team]);
+    }, [isOpen, team, values]);
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -73,7 +72,7 @@ const TeamModal = ({ isOpen, onClose, onSave, team, manufacturers, drivers }) =>
 
     const handleSave = () => {
         onSave(teamData);
-        onClose();
+        beforeOnClose();
     };
 
     const manufacturerOptions = manufacturers || [];
@@ -86,7 +85,7 @@ const TeamModal = ({ isOpen, onClose, onSave, team, manufacturers, drivers }) =>
             reader.onload = x =>{
                 setValues({                                    
                     ...values,
-                    imageFile: imageFile,
+                    imageFile: x.target.result,
                     imageSrc: x.target.result,    
                 })
             }
@@ -96,19 +95,22 @@ const TeamModal = ({ isOpen, onClose, onSave, team, manufacturers, drivers }) =>
             setValues({
                 ...values,
                 imageFile: null,
-                imageSrc: defaultImgSrc
+                imageSrc: null
 
             });
         }
     }
 
-    const validate = () => {
-        let temp ={};
-        temp.imageSrc = values.imageSrc === ''?false:true;
-        setErrors(temp);
-        return Object.values(temp).every(x => x === true);
+    const beforeOnClose = () => {
+        setValues({
+            ...values,
+            imageFile: null,
+            imageSrc: null
+
+        });
+        onClose();
     }
-    const applyErrorClass = field => ((field in errors && errors[field] === false) ? 'invalid-field' : '')
+
     return (
         <Modal
             isOpen={isOpen}
@@ -196,17 +198,22 @@ const TeamModal = ({ isOpen, onClose, onSave, team, manufacturers, drivers }) =>
                 </div>
                 <div className="form-group row my-1">
                     <div className="col-sm-5">
-                        <input type="file" accept='image/*' className={'form-control-file invalid-field' + applyErrorClass('imageSrc')} onChange={showPreview}/>
+                        <input type="file" accept='image/*' className="form-control-file invalid-field" onChange={showPreview}/>
                     </div>
-                    <div className="col-sm-7">
-                        <img src={values.imageSrc} alt='uploaded' style={{width:'100%', height:'15rem'}}/>
-                    </div>
+                    {
+                        values.imageSrc !== null? 
+                            <div className="col-sm-7">
+                                <img src={values.imageSrc} alt='uploaded' style={{width:'100%', height:'15rem'}}/>
+                            </div>
+                        :
+                            <></>
+                    }
                 </div>
                 <hr />
                 <button className="btn btn-primary mx-2" onClick={handleSave}>
                     Save
                 </button>
-                <button className="btn btn-warning" onClick={onClose}>
+                <button className="btn btn-warning" onClick={beforeOnClose}>
                     Cancel
                 </button>
             </form>
