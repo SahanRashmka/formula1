@@ -29,9 +29,7 @@ const customStyles = {
 
 const TeamModal = ({ isOpen, onClose, onSave, team, manufacturers, drivers }) => {
     const [values, setValues] = useState(initialFieldValues);
-    const [errors, setErrors] = useState({});
-
-
+    
     const [teamData, setTeamData] = useState({
         teamID: 0,
         teamNm: '',
