@@ -124,7 +124,7 @@ const TeamPage = () => {
                             <div
                                 key={item.teamID}
                                 className="card mx-2"
-                                Style="width: 18rem;"
+                                style={{width: "18rem"}}
                             >
                                 <img className="card-img-top" alt="" />
                                 <div className="card-body">

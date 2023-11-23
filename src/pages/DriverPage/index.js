@@ -9,8 +9,6 @@ const [isModalOpen, setIsModalOpen] = useState(false);
 const [selectedDriver, setSelectedDriver] = useState(null);
 const [nationalities, setNationalities] = useState([]);
 const [teams, setTeams] = useState([]);
-
-    const baseUrl = 'http://localhost:5223/api';
   
     useEffect(() => {
         
@@ -109,8 +107,7 @@ const [teams, setTeams] = useState([]);
                         
                         return (
                             
-                            <div key={item.driverID} className="card mx-2" Style="width: 18rem;">
-                                <img className="card-img-top" alt="Not Found" src="" />
+                            <div key={item.driverID} className="card mx-2" style={{width: '18rem'}}>
                                 <div className="card-body">
                                     <h5 className="card-title">{fNm} {lNm}</h5>
                                     <p className="card-text">{item.teamNm}</p>
